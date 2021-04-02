@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post">
+    <table border="1px" align="center">
+        <tr>
+            <td colspan="5"></td>
+            <td><a href="{% url "add" %}">增加</a> </td>
+        </tr>
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>工号</td>
+            <td>性别</td>
+            <td>部门</td>
+            <td>公司</td>
+
+        </tr>
+        {% for i in u_all %}
+            <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.username }}</td>
+            <td>{{ i.number }}</td>
+            <td>{{ i.gender }}</td>
+            <td>{{ i.dep_id.dname }}</td>
+            <td>{{ i.company_id.cname }}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+</form>
+</body>
+</html>

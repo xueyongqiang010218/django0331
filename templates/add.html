@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+<h3>添加员工信息</h3>
+<table border="1px" align="left">
+<tr>
+    <td>姓名：</td>
+    <td><input type="text" name="username" placeholder="请输入姓名"></td>
+</tr>
+<tr>
+    <td>工号：</td>
+    <td><input type="text" name="number" placeholder="请输入工号"></td>
+</tr>
+<tr>
+    <td>性别：</td>
+    <td>
+        <input type="radio" value="男" name="gender" checked="checked">男
+                <input type="radio" value="女" name="gender">女
+    </td>
+</tr>
+<tr>
+    <td>部门：</td>
+    <td>
+        <select name="dep_id">
+            {% for department in department_all %}
+                <option value="{{ department.id }}">{{ department.dname }}</option>
+            {% endfor %}
+
+        </select>
+    </td>
+</tr>
+<tr>
+    <td>公司：</td>
+    <td>
+        <select name="company_id">
+            {% for compsny in compsny_all %}
+                <option value="{{ compsny.id }}">{{ compsny.cname }}</option>
+            {% endfor %}
+                </select>
+    </td>
+</tr>
+    <tr>
+    <td><button>添加员工信息</button></td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
